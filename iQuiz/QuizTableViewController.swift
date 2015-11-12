@@ -57,6 +57,7 @@ class QuizTableViewController: UITableViewController {
         
         quizes = [mathQuiz, marvelQuiz, scienceQuiz]
         
+        self.navigationItem.title = "Choose A Quiz"
         
     }
     
@@ -120,7 +121,7 @@ class QuizTableViewController: UITableViewController {
         if segue.identifier == "showQuestion" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let quiz = quizes[indexPath.row]
-                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! QuestionViewController
+                let controller = segue.destinationViewController as! QuestionViewController
                 controller.quiz = quiz
 //                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
 //                controller.navigationItem.leftItemsSupplementBackButton = true

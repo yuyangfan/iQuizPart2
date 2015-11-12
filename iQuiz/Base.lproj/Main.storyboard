@@ -90,7 +90,7 @@
         <!--Question-->
         <scene sceneID="CtY-wJ-hzZ">
             <objects>
-                <viewController title="Question" id="ary-oQ-iQp" customClass="QuestionViewController" sceneMemberID="viewController">
+                <viewController title="Question" id="ary-oQ-iQp" customClass="QuestionViewController" customModule="iQuiz" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="78F-sT-ckE"/>
                         <viewControllerLayoutGuide type="bottom" id="QpY-LL-uyO"/>
@@ -99,24 +99,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54C-we-vVN">
-                                <rect key="frame" x="20" y="20" width="335" height="126"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wTO-q7-pH0">
-                                <rect key="frame" x="43" y="227" width="288" height="55"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAG-oZ-jW4">
-                                <rect key="frame" x="43" y="290" width="288" height="55"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JaY-RI-jxQ">
-                                <rect key="frame" x="43" y="353" width="288" height="55"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5a-Tg-OzL">
                                 <rect key="frame" x="20" y="560" width="335" height="55"/>
                                 <color key="backgroundColor" red="0.38217721314620745" green="0.65246017773618714" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -128,10 +110,20 @@
                                     <segue destination="dae-QP-eQ1" kind="show" identifier="showAnswer" id="83Z-7K-z8o"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1h-pH-gom">
-                                <rect key="frame" x="43" y="416" width="288" height="55"/>
-                                <state key="normal" title="Button"/>
-                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qWm-2e-92P">
+                                <rect key="frame" x="20" y="154" width="335" height="312"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ary-oQ-iQp" id="Avk-tO-6NU"/>
+                                    <outlet property="delegate" destination="ary-oQ-iQp" id="4ik-tc-Y0Z"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54C-we-vVN">
+                                <rect key="frame" x="20" y="20" width="335" height="126"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -142,10 +134,8 @@
                     <navigationItem key="navigationItem" id="d31-yi-n3Q"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="option1" destination="wTO-q7-pH0" id="Vfr-ff-zok"/>
-                        <outlet property="option2" destination="lAG-oZ-jW4" id="xqm-zF-v4Y"/>
-                        <outlet property="option3" destination="R1h-pH-gom" id="dti-Nv-UrG"/>
                         <outlet property="questionLabel" destination="54C-we-vVN" id="qAX-Dg-C7L"/>
+                        <outlet property="tableview" destination="qWm-2e-92P" id="DLf-cv-5I5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bEn-gi-XEv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -155,7 +145,7 @@
         <!--Answer-->
         <scene sceneID="KBv-yW-YJG">
             <objects>
-                <viewController title="Answer" id="dae-QP-eQ1" customClass="AnswerViewController" sceneMemberID="viewController">
+                <viewController title="Answer" id="dae-QP-eQ1" customClass="AnswerViewController" customModule="iQuiz" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jvV-nT-kYa"/>
                         <viewControllerLayoutGuide type="bottom" id="N6G-7K-Hjo"/>
@@ -188,12 +178,18 @@
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="NextQuestion:" destination="dae-QP-eQ1" eventType="touchUpInside" id="YHO-Af-p1K"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="correctAnswer" destination="SkG-h4-LDO" id="xg2-gj-DDr"/>
+                        <outlet property="questionLabel" destination="HfX-Wx-t8Z" id="bw0-xb-Vnu"/>
+                        <outlet property="result" destination="hyx-Uc-P0e" id="f6T-cb-uUd"/>
                         <segue destination="ary-oQ-iQp" kind="show" identifier="showNext" id="gdr-li-ySE"/>
                         <segue destination="Eze-j3-Xas" kind="show" identifier="showFinished" id="PO4-dq-qPT"/>
                     </connections>
@@ -205,7 +201,7 @@
         <!--Finished-->
         <scene sceneID="VV3-sH-z0O">
             <objects>
-                <viewController title="Finished" id="Eze-j3-Xas" customClass="FinishedViewController" sceneMemberID="viewController">
+                <viewController title="Finished" id="Eze-j3-Xas" customClass="FinishedViewController" customModule="iQuiz" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="No5-I1-K06"/>
                         <viewControllerLayoutGuide type="bottom" id="Rza-gP-u7M"/>
@@ -233,6 +229,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="next:" destination="Eze-j3-Xas" eventType="touchUpInside" id="sYw-ou-AWG"/>
                                     <segue destination="ZqK-LE-zdo" kind="show" identifier="showQuiz" id="Ox3-Mr-ETZ"/>
                                 </connections>
                             </button>
@@ -240,6 +237,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="endText" destination="63U-we-uLG" id="zhZ-Ei-Aia"/>
+                        <outlet property="score" destination="AsS-Pu-hxY" id="qjY-Hs-goC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1o7-yq-fIm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

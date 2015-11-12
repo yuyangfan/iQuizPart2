@@ -16,6 +16,8 @@ class QuizTableViewCell: UITableViewCell {
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var descriptions: UILabel!
     
+    @IBOutlet weak var answerLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
