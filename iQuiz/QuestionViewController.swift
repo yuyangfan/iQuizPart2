@@ -11,11 +11,12 @@ import UIKit
 class QuestionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var tableview: UITableView!
+
+    @IBOutlet weak var tableView: UITableView!
     
     var quiz : Quiz = Quiz(title: "", description: "", questions: [])
     var questionIndex : Int = 0
-    var selectedIndex : Int = 0
+    
     var selectedChoice : String = ""
     var score : Int = 0
     
@@ -40,60 +41,55 @@ class QuestionViewController: UIViewController, UITableViewDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let controller = segue.destinationViewController as! AnswerViewController
+        controller.quiz = quiz
+        controller.questionIndex = questionIndex
+        controller.score = score
+        controller.selectedChoice = selectedChoice
+        
+    }
+    
+    
+    
 
     @IBAction func submitAnswer(sender: UIButton) {
-        self.performSegueWithIdentifier("showAnswer", sender: self)
+        self.performSegueWithIdentifier("showAnswer", sender: nil)
     }
     
     // MARK: - Table view data source
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
         
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       
-        return quiz.questions[questionIndex].answers.count
+        return 4
+        
     }
-    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         // Table view cells are reused and should be dequeued using a cell identifier.
-        let cellIdentifier = "QuestionChoiceCell"
+        let cellIdentifier = "QuizTableViewCell"
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! QuizTableViewCell
         
-        
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as UITableViewCell?
-        
-        cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: cellIdentifier)
-        
+        //
         let answer = quiz.questions[questionIndex].answers[indexPath.row]
-        cell!.textLabel!.text = answer
+        cell.nameLabel.text = answer
         
-        return cell!
+        return cell
     }
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let currCell = tableView.cellForRowAtIndexPath(indexPath)
-        selectedChoice = (currCell?.textLabel?.text)!
+       selectedChoice = quiz.questions[questionIndex].answers[indexPath.row]
     }
-    
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-       
-        let controller = segue.destinationViewController as! AnswerViewController
-        controller.quiz = quiz
-        controller.questionIndex = questionIndex
-        controller.score = score
-        controller.selectedChoice = selectedChoice
-        controller.selectedIndex = selectedIndex
-    }
-    
 
 }

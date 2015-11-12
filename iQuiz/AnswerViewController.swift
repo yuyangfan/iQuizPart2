@@ -18,7 +18,7 @@ class AnswerViewController: UIViewController {
     var selectedChoice : String = ""
     var score : Int = 0
     var questionIndex : Int = 0
-    var selectedIndex : Int = 0
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ class AnswerViewController: UIViewController {
         questionLabel.text = quiz.questions[questionIndex].question
         let rightAnswer = quiz.questions[questionIndex].correctAnswer
         correctAnswer.text = "Correct Answer is: \(rightAnswer)"
-        
+       // let myAnswer = quiz.questions[questionIndex].answers[selectedChoice]
         
         if (selectedChoice == rightAnswer) {
             result.text = "Correct!"

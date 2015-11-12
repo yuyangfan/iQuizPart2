@@ -34,10 +34,10 @@ class QuizTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         
-        var question1 = Question(question: "100 + 30", correctAnswer: "130", answers:["130", "150", "160", "200"])
-        var question2 = Question(question: "100 * 30", correctAnswer: "300", answers:["130", "300", "260", "1300"])
-        var question3 = Question(question: "100 / 20", correctAnswer: "5", answers:["50", "100", "5", "15"])
-        var question4 = Question(question: "100 - 98", correctAnswer: "2", answers:["13", "6", "2", "75"])
+        var question1 = Question(question: "100 + 30 = ?", correctAnswer: "130", answers:["130", "150", "160", "200"])
+        var question2 = Question(question: "100 * 30 = ?", correctAnswer: "3000", answers:["1300", "3000", "2600", "30000"])
+        var question3 = Question(question: "100 / 20 = ?", correctAnswer: "5", answers:["50", "100", "5", "15"])
+        var question4 = Question(question: "100 - 98 = ?", correctAnswer: "2", answers:["13", "6", "2", "75"])
         
         let mathQuiz = Quiz(title: "Mathematics", description: "Test your math skills", questions: [question1, question2, question3, question4])
         
@@ -48,10 +48,10 @@ class QuizTableViewController: UITableViewController {
         
         let marvelQuiz = Quiz(title: "Marvel Super Heros", description: "How well do you know about it", questions: [question1, question2, question3, question4])
         
-        question1 = Question(question: "Which one is the intro class to Science", correctAnswer: "Science 101", answers:["Science 101", "Science 498", "Science 200", "Science 191"])
-        question2 = Question(question: "Who is Iron Man?", correctAnswer: "Tony Stark", answers:["Tony Stark", "Jimmy Stark", "Josh Stark", "Mad Stark"])
-        question3 = Question(question: "Who is not an avenger?", correctAnswer: "Batman", answers:["Iron Man", "Batman", "Hulk", "Thor"])
-        question4 = Question(question: "Who is the oldest avenger?", correctAnswer: "Thor", answers:["Iron Man", "Hulk", "Thor", "Captain America"])
+        question1 = Question(question: "Which one is the intro class to Science?", correctAnswer: "Science 101", answers:["Science 101", "Science 498", "Science 200", "Science 191"])
+        question2 = Question(question: "Which class teaches you gravity", correctAnswer: "Physics", answers:["Math", "English", "Chemstry", "Physics"])
+        question3 = Question(question: "What is the percentage of Oxygen in the air?", correctAnswer: "21%", answers:["21%", "82%", "0.2%", "36%"])
+        question4 = Question(question: "What is the average gravity on earth?", correctAnswer: "9.8", answers:["12.8", "9.8", "11.8", "10.8"])
         
         let scienceQuiz = Quiz(title: "Science", description: "All about natural science", questions: [question1, question2, question3, question4])
         

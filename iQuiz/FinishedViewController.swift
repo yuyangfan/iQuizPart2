@@ -24,14 +24,14 @@ class FinishedViewController: UIViewController {
         let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: "back:")
         self.navigationItem.leftBarButtonItem = newBackButton;
         
-        score.text = "Your score: \(totalScore) out of \(questionIndex) are correct!"
+        score.text = "\(totalScore) out of \(questionIndex) are correct!"
         
-        let scorePercent : Double = Double(totalScore) / Double(questionIndex)
-        if(scorePercent == 1) {
+        //let scorePercent : Double = Double(totalScore) / Double(questionIndex)
+        if(totalScore == 4) {
             endText.text = "Perfect! :)"
-        }else if (scorePercent >= 0.8){
+        }else if (totalScore == 3){
             endText.text = "Great Job! :)"
-        }else if (scorePercent >= 0.4){
+        }else if (totalScore == 2){
             endText.text = "Not Bad! :)"
         }else{
             endText.text = "Fail! :("
